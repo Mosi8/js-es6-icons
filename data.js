@@ -117,19 +117,18 @@ const elenco = [
 const col = document.getElementById('card');
 const sel = document.getElementById('seleziona-icone');
 
+elenco.forEach((element) =>{ 
+	col.innerHTML += card(element)
+})
 
 sel.addEventListener("change", function(){
 	col.innerHTML = "";
-	cards(this.value);
-})
-
-function cards(prova){
 	elenco.forEach((element) => {
-		if((element.type == prova)||(prova == 'all')){
+		if((element.type == this.value)||(this.value == 'all')){
 			col.innerHTML += card(element) 
 		}
 	})
-}
+})
 
 function card(icon){
 	const {name, prefix, family, color} = icon
